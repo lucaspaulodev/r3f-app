@@ -1,10 +1,12 @@
 import { Canvas } from "@react-three/fiber"
-import { Scene } from "./components/Scene"
+import Scene from "./components/Scene"
 
-export const App = () => {
+const App = () => {
     return (
         <Canvas>
             <Scene />
         </Canvas>
     )
 }
+
+export default App

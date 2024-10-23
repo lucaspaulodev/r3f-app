@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
 extend({ OrbitControls })
 
-export const Scene = () => {
+const Scene = () => {
     const { camera, gl } = useThree()
     const boxRef = useRef()
     const groupRef = useRef()
@@ -37,3 +37,5 @@ export const Scene = () => {
 
     )
 }
+
+export default Scene

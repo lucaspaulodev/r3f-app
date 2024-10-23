@@ -2,7 +2,7 @@ import { useFrame, extend, useThree } from "@react-three/fiber"
 import { useRef } from "react"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
-extend({ orbitControls: OrbitControls })
+extend({ OrbitControls })
 
 export const Scene = () => {
     const { camera, gl } = useThree()
@@ -17,22 +17,21 @@ export const Scene = () => {
     return (
         <>
             <orbitControls args={[camera, gl.domElement]} />
-
-            
-
+            <directionalLight position={[1, 2, 3]} intensity={4.5} />
+            <ambientLight intensity={1} />
             <group ref={groupRef}>
                 <mesh position-x={-2} scale={1}>
                     <sphereGeometry />
-                    <meshNormalMaterial />
+                    <meshStandardMaterial color="salmon" />
                 </mesh>
                 <mesh ref={boxRef} position-x={2} scale={1.5}>
                     <boxGeometry args={[1, 1]} />
-                    <meshNormalMaterial />
+                    <meshStandardMaterial color="purple" />
                 </mesh>
             </group>
             <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
                 <planeGeometry />
-                <meshBasicMaterial color="green" />
+                <meshStandardMaterial color="green" />
             </mesh>
         </>
 

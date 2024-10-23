@@ -1,6 +1,7 @@
 import { useFrame, extend, useThree } from "@react-three/fiber"
 import { useRef } from "react"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
+import CustomGeometry from "./CustomGeometry"
 
 extend({ OrbitControls })
 
@@ -33,6 +34,8 @@ const Scene = () => {
                 <planeGeometry />
                 <meshStandardMaterial color="green" />
             </mesh>
+
+            <CustomGeometry/>
         </>
 
     )

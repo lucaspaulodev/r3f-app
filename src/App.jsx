@@ -1,7 +1,10 @@
+import { Canvas } from "@react-three/fiber"
+import { Scene } from "./components/Scene"
+
 export const App = () => {
     return (
-        <div>
-            Soon to be a badass R3F application
-        </div>
+        <Canvas>
+            <Scene />
+        </Canvas>
     )
 }

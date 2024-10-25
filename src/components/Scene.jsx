@@ -1,23 +1,19 @@
-import { useFrame, extend, useThree } from "@react-three/fiber"
+import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 import CustomGeometry from "./CustomGeometry"
-
-extend({ OrbitControls })
+import { OrbitControls } from "@react-three/drei"
 
 const Scene = () => {
-    const { camera, gl } = useThree()
     const boxRef = useRef()
     const groupRef = useRef()
 
-    useFrame((state, delta) => {
-        boxRef.current.rotation.y += delta
-        groupRef.current.rotation.y += delta
-    })
+    // useFrame((state, delta) => {
+    //     boxRef.current.rotation.y += delta
+    //     groupRef.current.rotation.y += delta
+    // })
 
     return (
         <>
-            <orbitControls args={[camera, gl.domElement]} />
             <directionalLight position={[1, 2, 3]} intensity={4.5} />
             <ambientLight intensity={1} />
             <group ref={groupRef}>
@@ -34,8 +30,8 @@ const Scene = () => {
                 <planeGeometry />
                 <meshStandardMaterial color="green" />
             </mesh>
-
-            <CustomGeometry/>
+            <OrbitControls/>
+            {/* <CustomGeometry/> */}
         </>
 
     )
